@@ -27,15 +27,21 @@ below:
 To start a **Colab** notebook was started and Spark and Java were activated, from there **pyspark.sql** was imported from **SparkSession** and drivers installed. After
 that the data was read into **Colab** from a url using **SparkFiles**.
 
+![This image shows the starting cell](https://github.com/dh4rt/Amazon_Vine_Analysis/blob/main/images/Spark_start.png)
+
 After the data was imported a more refined table was needed so the **vine_df** was built using the code shown below, after the DataFrame was built a count was done to
 determine who many reviews overall existed within the DataFrame the result was an enormous 1,785,997.
+
+![This image shows vine_df](https://github.com/dh4rt/Amazon_Vine_Analysis/blob/main/images/vine_df.png)
 
 The client however required more refined information and thus requested that only reviews with at least 20 total_votes be used going forward, so a filter was applied
 to the **vine_df** which was titled **cleaned_vine_df** after this DataFrame was created a count was again done resulting in a total of 65,379 reviews.
 
+
+
 The client again asked for a more refined DataFrame, particularly one which would have the helpful_votes make up at least 50% of the total_votes. This was done by
 filtering the **cleaned_vine_df** and dividing helpful_votes by total_votes and filtering out reviews where the result was not at least 50%, this table would become 
-the primary table around which the rest of the analysis was performed. 
+the primary table around which the rest of the analysis was performed. This DataFrame was called **most_helpful_df**
 
 
 
