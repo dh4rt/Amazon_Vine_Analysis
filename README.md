@@ -8,12 +8,11 @@ AWS cloud database (this database was deleted upon completion of analysis)
 Dataset: [Amazon Dataset](https://s3.amazonaws.com/amazon-reviews-pds/tsv/amazon_reviews_us_Video_Games_v1_00.tsv.gz)
 Spark version 3.2.3
 
-
 ## Overview of Analysis
-This analysis was requested by the client (SellBy) to determine the impact of Amazon's Vine program on the outcome of reviews. The client specifically requested that
-this analysis be performed on items within the "Video Games" tag because of the impact that streamers and reviewing content creators are precieved to have on the sales
-of items within this realm. The analysis was performed using Google Colab to **extract, transform, and load** once that was completed the data analyized on a number of 
-parameters specifed by the client.
+This analysis was requested by the client (SellBy) to determine the impact of Amazon's Vine program on the outcome of reviews. The client specifically requested that.
+this analysis be performed on items within the "Video Games" tag because of the impact that streamers and reviewing content creators are perceived to have on the sales
+of items within this realm. The analysis was performed using Google Colab to **extract, transform, and load** once that was completed the data analyzed on a number of 
+parameters specified by the client.
 
 ## Results
 This section will be broken down in to three subsections **Process**, **Vine reviews**, and **non-Vine reviews** for clarity, the queries asked by the client are listed
@@ -38,20 +37,18 @@ The client however required more refined information and thus requested that onl
 to the **vine_df** which was titled **cleaned_vine_df** after this DataFrame was created a count was again done resulting in a total of 65,379 reviews.
 
 
-
 The client again asked for a more refined DataFrame, particularly one which would have the helpful_votes make up at least 50% of the total_votes. This was done by
 filtering the **cleaned_vine_df** and dividing helpful_votes by total_votes and filtering out reviews where the result was not at least 50%, this table would become 
 the primary table around which the rest of the analysis was performed. This DataFrame was called **most_helpful_df**
 
 
-
 ### Vine Reviews
 * How many reviews for each type are there?
-To get this answer the **most_helpful_df** was filtered by the **vine** column to inculde the reviews that indicated Y, immediately after this a count was performed
+To get this answer the **most_helpful_df** was filtered by the **vine** column to include the reviews that indicated Y, immediately after this a count was performed
 which showed a result of 94 votes.
 
 * How many are 5 star?
-To determine how many of those review are five star, the **five_star_df** was filtered by reviews that inciated Y to Vine participation. The result was a total of 48
+To determine how many of those review are five star, the **five_star_df** was filtered by reviews that indicated Y to Vine participation. The result was a total of 48
 five star reviews being posted by participants in the Vine program
 
 * What percentage of those reviews do the two categories make up?
@@ -68,7 +65,7 @@ In a mirrored process to what was done to achieve the Vine five star review **fi
 Vine users and the result was that 15,663 five star reviews did not come from Vine users.
 
 * What percentage of those reviews do the two categories make up?
-To get this result, a mirriored process was performed using the **unpaid_five_star.count()** being divided by the **five_star_df.count()** and multiplied by 100 to get
+To get this result, a mirrored process was performed using the **unpaid_five_star.count()** being divided by the **five_star_df.count()** and multiplied by 100 to get
 a stunning **99.69%** of five star reviews not coming from Vine users.
 
 ## Summary
@@ -76,5 +73,6 @@ This analysis shows with fairly stunning results that Vine users do not appear t
 category are not coming from these "power users" you can consider your data fairly unskewed.
 
 There is more analysis that could be done with this data set to see if/how Vine users might create purchasing bias:
-* what sub-category of item do they review most highly? (controllers, games, trinkets, etc)
+* what sub-category of item do they review most highly? (controllers, games, trinkets, etc.)
 * what the cost of the items with the highest reviews are?
+
